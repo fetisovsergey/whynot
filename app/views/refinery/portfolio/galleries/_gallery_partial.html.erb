@@ -1,0 +1,11 @@
+<div id="<%= dom_id(gallery) %>" class="gallery">
+<h2><%= gallery.title %></h2>
+<% gallery.items.first(7).each do |item| %>
+	<a href="<%= image_path(item.image.url) %>" style="text-decoration:none" class="image_gallery" rel="gallery">
+     <%= image_tag(item.image.thumbnail(geometry:"200x150#ne").url,class:"image") %>
+ 	</a>
+<% end %>
+<% if gallery.items.count > 7 %>
+ 	<h3><%= link_to("Больше фотографий",refinery.portfolio_gallery_path(gallery),class:"red") %></h3>
+ <% end %>
+</div>

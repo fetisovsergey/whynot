@@ -1,0 +1,79 @@
+<nav class="navbar navbar-static-top" role="navigation">
+  <div class="container">
+  <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Часы работы</a>
+          <ul class="dropdown-menu">
+            Пн-Пт: с 17:00 до 23:00<br>Сб-Вс: с 11:00 до 23:00<br>г.Клин, ул.Карла Маркса, д.6
+          </ul>
+        </li>
+        <li><a href="/contact">+7(903)966-82-67</a></li>
+        <li><a href="/contact">Найти нас</a></li>
+      </ul>
+    </div>
+</nav>
+<nav class="navbar navbar-inverse navbar-custom" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/"><%= image_tag("bely.png",id:"logo",class:"logo") %></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav pull-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">РАСПИСАНИЕ</a>
+          <ul class="dropdown-menu">
+            <li><a href="/schedule">Расписание</a></li>
+            <li><a href="/prices">Цены</a></li>
+            <li><a href="/directions">Направления</a></li>
+            <li><a href="/teachers">Преподаватели</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ПРОЕКТЫ</a>
+          <ul class="dropdown-menu">
+            <% menu = submenu('projects') %>
+            <% if menu %>
+              <% menu.each do |page| %>
+              <%= render 'refinery/partials/menu_branch', :page => page %>
+              <% end %>
+            <% end %>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">УСЛУГИ</a>
+          <ul class="dropdown-menu">
+            <% menu = submenu('service') %>
+            <% if menu %>
+              <% menu.each do |page| %>
+              <%= render 'refinery/partials/menu_branch', :page => page %>
+              <% end %>
+            <% end %>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ГАЛЕРЕЯ</a>
+          <ul class="dropdown-menu">
+            <li><a href="/portfolio">Фото</a></li>
+            <li><a href="/video">Видео</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">КОНТАКТЫ</a>
+          <ul class="dropdown-menu">
+            <li><a href="/contact">Как найти нас</a></li>
+            <li><a href="/job">Вакансии</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

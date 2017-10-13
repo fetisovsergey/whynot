@@ -1,0 +1,59 @@
+<% provide(:title, 'Главная страница') %>
+<!DOCTYPE html>
+<html>
+<body>
+   <div class="mini_block white">
+     <!-- <%= render 'refinery/partials/header', :header => "ТРЕНЕРА" %> -->
+     <div class="teachers">
+        <h2>ПРЕПОДАВАТЕЛИ</h2>
+        <%= render 'refinery/partials/teachers_list', :galleries => Refinery::Portfolio::Gallery.all %>
+     </div>
+     <div class="teachers">
+      <h2>ТРЕНИРОВКА</h2>
+      <%= render 'refinery/partials/progress_bar' %>
+     </div>
+     
+  </div>
+
+  <div class="mini_block white">
+     <%= render 'refinery/partials/header', :header => "ПРЕИМУЩЕСТВА" %>
+     <div class="advantages">
+      <%= image_tag("planirovka.png",class:"advantage_image") %>
+      <h3>ТЩАТЕЛЬНОЕ ПЛАНИРОВАНИЕ</h3>
+    </div>
+    <div class="advantages">
+      <%= image_tag("training.png",class:"advantage_image") %>
+      <h3>АКТИВНАЯ ТРЕНИРОВКА</h3>
+    </div>
+    <div class="advantages">
+      <%= image_tag("photoreport.png",class:"advantage_image") %>
+      <h3>ФОТООТЧЕТ</h3>
+    </div>
+  </div>
+
+  <div class="mini_block black">
+    <%= render 'refinery/partials/header', :header => "ФОТО" %>
+    <div class="carousel">
+      <% Refinery::Image.all.each do |image| %>
+        <a href="<%= image_path(image.url) %>" style="text-decoration:none" class="image_gallery" rel="gallery">
+          <div class="slider">
+            <%= image_tag("search.png",class:"search") %>
+            <%= image_tag(image.thumbnail(geometry:"320x240#ne").url,class:"slide") %>
+          </div>
+        </a>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="mini_block white">
+       <%= render 'refinery/partials/header', :header => "КОНТАКТЫ" %>
+       <%= render 'refinery/partials/map' %>
+    </div>
+
+  <div class="mini_block white">
+     <%= render 'refinery/partials/header', :header => "ПОДПИСАТЬСЯ" %>
+     <a href="https://vk.com/whynotklin" target="_blank"><%= image_tag("vkr.png",class:"icon_social icon_social_main") %></a>
+     <a href="https://www.instagram.com/whynotklin/" target="_blank"><%= image_tag("instagramr.png",class:"icon_social icon_social_main") %></a>
+     <a href="https://www.youtube.com/channel/UCzXID9F2yvtdOE-CgrSXAgA" target="_blank"><%= image_tag("youtuber.png",class:"icon_social icon_social_main") %></a>
+  </div>
+</body>

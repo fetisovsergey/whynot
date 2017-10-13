@@ -1,0 +1,10 @@
+<% provide(:title, 'Преподаватели') %>
+<!DOCTYPE html>
+<html>
+<body>
+	  <div class="mini_block white">
+	     <%= render 'refinery/partials/header', :header => "ПРЕПОДАВАТЕЛИ" %>
+	     <%= render 'refinery/partials/teachers_list_total', :galleries => Refinery::Portfolio::Gallery.all %>
+	  </div>
+</body>
+  

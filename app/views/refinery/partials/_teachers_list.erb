@@ -1,0 +1,16 @@
+  <% galleries.each do |gallery| 
+  	 if gallery.children.count > 0 
+	  	 gallery.children.each do |gal| %>
+	  	 	<a href="<%= link(gal) %>" style="text-decoration:none;">
+	  	 		<div class="teacher_avatar">
+			  		<%= image_tag(gal.items.first.image.thumbnail(geometry:"230x230#ne").url,class:"image") %>
+			  	</div>
+			  	<div class="teacher_description">
+		  			<h3><%= gal.title %></h3>
+		  			<h4><%= gal.body.first(330).html_safe %></h4>
+	  			</div>
+	  		</a>
+	  	<% end
+	  	break 
+	 end 
+   end %>

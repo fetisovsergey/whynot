@@ -1,0 +1,3 @@
+<a href="<%= image_path(item.image.url) %>" style="text-decoration:none" class="image_gallery" rel="gallery">
+    <%= image_tag(item.image.thumbnail(geometry:"200x150#ne").url,class:"image") %>
+</a>

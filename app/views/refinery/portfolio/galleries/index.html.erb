@@ -1,0 +1,13 @@
+<% provide(:title, 'Фото') %>
+<!DOCTYPE html>
+<html>
+<body>
+	  <div class="mini_block white">
+	     <% if @galleries.count == 0 %>
+	    	<%= render 'refinery/portfolio/items/items', :items => @items %>
+	     <% else %>
+	     	<%= render 'refinery/partials/header', :header => "ФОТО" %>
+	     	<%= render 'galleries', :galleries => @galleries %>
+	     <% end %>
+	  </div>
+</body>

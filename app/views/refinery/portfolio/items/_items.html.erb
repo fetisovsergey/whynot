@@ -1,0 +1,6 @@
+<%- if items.present? -%>
+	<div id="<%= dom_id(@gallery) %>" class="gallery">
+		<h2><%= @gallery.title %></h2>
+		<%= render items %>
+	</div>
+<%- end -%>

@@ -1,0 +1,22 @@
+<% provide(:title, @page.title) %>
+<!DOCTYPE html>
+<html>
+<body>
+	  <div class="mini_block white">
+	  	<% gallery = Refinery::Portfolio::Gallery.where(title: @page.title).first %>
+	    <%= render 'refinery/partials/header', :header => @page.title %>
+	    <div class="teacher_avatar_main">
+			<%= image_tag(gallery.items.first.image.thumbnail(geometry:"600x600>").url,class:"image") %>
+			<h2><%=@page.title %></h2>
+				<h4><%=raw @page.content_for(:schedule) %></h4>
+		</div>
+		<div class="teacher_description_total">
+			<h4><%=raw @page.content_for(:body) %></h4>
+			<% gallery.items.each do |item| %>
+				<a href="<%= image_path(item.image.url) %>" style="text-decoration:none" class="image_gallery" rel="gallery">
+		            <%= image_tag(item.image.thumbnail(geometry:"200x200#ne").url,class:"image") %>
+		        </a>
+			<% end %>
+	  	</div>
+	  </div>
+</body>

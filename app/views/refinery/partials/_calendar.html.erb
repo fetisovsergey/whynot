@@ -1,0 +1,76 @@
+<script type="text/javascript">
+$(document).ready(function() {
+	if (window.innerWidth > 700)
+	{	
+	    $('#calendar').fullCalendar({
+	        googleCalendarApiKey: 'AIzaSyBr0MGXduK1ajNRAxrGGdc2nMIscGq2yY0',
+	       	lang: 'ru',
+	       	aspectRatio: 1,
+	       	buttonText:
+	       	{
+			    today:    'Сегодня',
+			    month:    'Месяц',
+			    week:     'Неделя',
+			    day:      'День'
+			},
+	        events: {
+	            googleCalendarId: 'sergfetisov@gmail.com',
+	            className: 'gcal-event' // an option!
+	        },
+	        header:
+	        {
+	        	left: 'prev,next',
+			    center:   'title',
+			    right:  'month,basicWeek,agendaDay'
+			},
+			titleFormat:
+			{
+			    day: 'D MMM YYYY г.'  
+			},
+			slotLabelFormat:"HH:mm",
+			allDaySlot: false,
+			columnFormat:
+			{
+			    basicWeek: 'ddd\nD/M'     
+			}
+	    });
+	}
+	else
+	{
+		$('#calendar').fullCalendar({
+	        googleCalendarApiKey: 'AIzaSyBr0MGXduK1ajNRAxrGGdc2nMIscGq2yY0',
+	       	lang: 'ru',
+	       	aspectRatio: 1,
+	       	buttonText:
+	       	{
+			    today:    'Сегодня',
+			    month:    'M',
+			    week:     'W',
+			    day:      'D'
+			},
+	        events: {
+	            googleCalendarId: 'sergfetisov@gmail.com',
+	            className: 'gcal-event' // an option!
+	        },
+	        header:
+	        {
+	        	left: 'title',
+			center:'',
+			right:  'basicWeek,agendaDay'
+			},
+			titleFormat:
+			{
+			    day: 'D.MM.YYYY'  
+			},
+			slotLabelFormat:"HH:mm",
+			allDaySlot: false,
+			columnFormat:
+			{
+			    basicWeek: 'ddd\nD/M'     
+			}
+	    });
+	}
+
+})
+</script>
+<div id="calendar"></div>

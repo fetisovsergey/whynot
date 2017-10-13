@@ -1,0 +1,52 @@
+<script type="text/javascript">
+$(document).ready(function() {
+L.mapbox.accessToken = 'pk.eyJ1IjoiZmV0aXNvdnNlcmdleSIsImEiOiI0X09HSjZFIn0.aU0mwcW1UZIj5ZWVBFkRdQ';
+          var map = L.mapbox.map('map', 'mapbox.streets').setView([56.331196, 36.713749], 15);
+          L.control.layers({
+          'Схема': L.mapbox.tileLayer('mapbox.streets').addTo(map),
+          'Спутник': L.mapbox.tileLayer('mapbox.satellite')
+          }).addTo(map);
+          map.scrollWheelZoom.disable();
+          var isMobile = {
+              Android: function() {
+                  return navigator.userAgent.match(/Android/i);
+              },
+              BlackBerry: function() {
+                  return navigator.userAgent.match(/BlackBerry/i);
+              },
+              iOS: function() {
+                  return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+              },
+              Opera: function() {
+                  return navigator.userAgent.match(/Opera Mini/i);
+              },
+              Windows: function() {
+                  return navigator.userAgent.match(/IEMobile/i);
+              },
+              any: function() {
+                  return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+              }
+          };
+          if(isMobile.any()) {
+            map.dragging.disable();
+            if (map.tap) map.tap.disable();
+          }
+          else
+          {
+            map.dragging.enable();
+            if (map.tap) map.tap.enable();
+          }
+          var marker = L.marker([56.331196, 36.713749],
+          {
+          icon: L.mapbox.marker.icon({'marker-color': '#3bb2d0','marker-symbol':'star','marker-size': 'large'})
+          }).addTo(map);
+});
+</script>
+<div id="map_area">
+	<div id="address">
+		<h1>Контактная информация</h1>
+	    <h2>Клин, ул. Карла Маркса, 6<br>
+	    +7 (903) 966-82-67</h2>
+    </div>
+<div id="map"></div>
+</div>
